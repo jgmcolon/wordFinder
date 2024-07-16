@@ -55,22 +55,32 @@ namespace wordFinder
         private void Check()
         {
 
+            //Minimum request 1 row
+            if (_matrix.Count() == 0) throw new Exception($"Matrix [row] without character");
+
+            //Maximum size permited
             if (_matrix.Count() > matrixMaxSize) throw new Exception($"Matrix [row] exceed max size permited {matrixMaxSize}");
 
             foreach (var row in _matrix)
             {
                 int _current = row.Trim().Split(' ').Count();
 
+                //Minimum request 1 columns
                 if (_current == 0) throw new Exception($"Matrix [col] without character");
 
+                //Maximum size permited
                 if (_current > matrixMaxSize)
                 {
                     throw new Exception($"Matrix [col] exceed max size permited {matrixMaxSize}");
                 }
 
+                //if first line using current size
                 if (size == 0) { size = _current; continue; }
 
+                //check all column have same size
                 if (size != _current) { throw new Exception($"Matrix [col] not have same number of characters"); }
+
+                
             }
 
         }

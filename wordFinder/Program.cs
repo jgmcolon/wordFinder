@@ -38,6 +38,7 @@ try
 
     IEnumerable<string> result = wf.Find(wordsToFind);
 
+    //Print found words
     Console.WriteLine(WriteConsole.NewLine('-'));
     Console.WriteLine(WriteConsole.centerText("***RESULT***"));
     Console.WriteLine(WriteConsole.NewLine('-'));
@@ -49,6 +50,7 @@ try
 
 }
 catch (Exception ex) {
+    //If the business rules are not met, an exception is generated.
     Console.WriteLine(WriteConsole.NewLine('*'));
     Console.WriteLine(ex.Message);
     Console.WriteLine(WriteConsole.NewLine('*'));
